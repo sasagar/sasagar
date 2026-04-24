@@ -16,8 +16,8 @@ Here are some ideas to get you started:
 -->
 
 <div align="left"> 
-  <img alt="Top Langs" height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sasagar&layout=compact&theme=tokyonight&hide_border=true">
-  <img alt="github stats" height="150px" src="https://github-readme-stats.vercel.app/api?username=sasagar&theme=tokyonight&show_icons=true&hide_border=true">
+  <img alt="Top Langs" height="150px" src="https://github-readme-stats.shion.dev/api/top-langs/?username=sasagar&layout=compact&theme=tokyonight&hide_border=true">
+  <img alt="github stats" height="150px" src="https://github-readme-stats.shion.dev/api?username=sasagar&theme=tokyonight&show_icons=true&hide_border=true">
 </div>
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=sasagar&theme=tokyonight&column=7&no-frame=true&title=MultiLanguage,Commits,Repositories,Issues,PullRequest,Stars,Followers)](https://github.com/ryo-ma/github-profile-trophy)
