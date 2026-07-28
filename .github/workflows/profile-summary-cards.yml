@@ -17,7 +17,7 @@ jobs:
         with:
           USERNAME: ${{ github.repository_owner }}
           UTC_OFFSET: 9
-          BRANCH_NAME: main
+          BRANCH_NAME: output  # main から output に変更
           AUTO_PUSH: true
         env:
           GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN }}
