@@ -1,27 +1,58 @@
-### Hi there 👋
+<div align="center">
 
-<!--
-**sasagar/sasagar** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# SASAGAWA Kiyoshi <sub>(SASAPIYO)</sub>
 
-Here are some ideas to get you started:
+**Web developer in Tokyo, Japan** — [LAPRAS Inc.](https://lapras.com) / [Kent&Co.](https://kent-and-co.com)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+WordPress contributor &nbsp;·&nbsp; WordPress plugin developer &nbsp;·&nbsp; Misskey contributor
 
-<div align="left">
-  <img alt="Top Langs" height="150px" src="https://github-readme-stats.shion.dev/api/top-langs/?username=sasagar&layout=compact&theme=tokyonight&hide_border=true">
-  <img alt="github stats" height="150px" src="https://github-readme-stats.shion.dev/api?username=sasagar&theme=tokyonight&show_icons=true&hide_border=true">
+[![Website](https://img.shields.io/badge/Website-kent--and--co.com-0366d6?style=flat-square&logo=googlechrome&logoColor=white)](https://kent-and-co.com)
+[![X](https://img.shields.io/badge/X-@sasagawaki-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/sasagawaki)
+[![Followers](https://img.shields.io/github/followers/sasagar?style=flat-square&label=Followers&color=0366d6)](https://github.com/sasagar?tab=followers)
+
 </div>
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=sasagar&theme=tokyonight&column=7&no-frame=true&title=MultiLanguage,Commits,Repositories,Issues,PullRequest,Stars,Followers)](https://github.com/ryo-ma/github-profile-trophy)
+---
 
-[![Profile](https://raw.githubusercontent.com/sasagar/sasagar/output/profile-summary-card-output/tokyonight/0-profile-details.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
-[![Repo Languages](https://raw.githubusercontent.com/sasagar/sasagar/output/profile-summary-card-output/tokyonight/1-repos-per-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards) [![Commit Languages](https://raw.githubusercontent.com/sasagar/sasagar/output/profile-summary-card-output/tokyonight/2-most-commit-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
-[![Stats](https://raw.githubusercontent.com/sasagar/sasagar/output/profile-summary-card-output/tokyonight/3-stats.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards) [![Productive Time](https://raw.githubusercontent.com/sasagar/sasagar/output/profile-summary-card-output/tokyonight/4-productive-time.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+## 👋 About
+
+- 🧩 Contributing to **WordPress** and building **WordPress plugins**
+- 🌐 Contributing to **Misskey** ([misskey-dev](https://github.com/misskey-dev))
+- 🛠 **TypeScript / JavaScript / Vue** for web apps, **PHP** for WordPress plugins
+- 🔧 Plus a steady stream of small tools that remove daily friction — Notion, OBS, Google Calendar, Minecraft
+- 📍 Based in Tokyo — available for interesting work
+
+<details>
+<summary>🇯🇵 日本語</summary>
+
+<br>
+
+東京在住の Web デベロッパーです。LAPRAS Inc. に所属しつつ、Kent&Co. を運営しています。
+
+- WordPress のコントリビューター、および WordPress プラグインの開発者です
+- Misskey にもコントリビュートしています
+- Web アプリは TypeScript / JavaScript / Vue、WordPress プラグインは PHP
+- Notion・OBS・Google カレンダー・Minecraft まわりの、日々の面倒を減らす小さなツールをよく作ります
+
+</details>
+
+---
+
+## 📊 Metrics
+
+<p align="center">
+  <img alt="Overview and contribution calendar" width="430" src="https://raw.githubusercontent.com/sasagar/sasagar/output/metrics.overview.svg">
+  <img alt="Most used languages, and issue / pull request status" width="430" src="https://raw.githubusercontent.com/sasagar/sasagar/output/metrics.languages.svg">
+</p>
+<p align="center">
+  <img alt="Notable contributions and featured repositories" width="430" src="https://raw.githubusercontent.com/sasagar/sasagar/output/metrics.contributions.svg">
+  <img alt="Recently starred repositories" width="430" src="https://raw.githubusercontent.com/sasagar/sasagar/output/metrics.starred.svg">
+</p>
+
+<div align="center">
+<sub>
+Generated daily by <a href="https://github.com/lowlighter/metrics">lowlighter/metrics</a> ·
+rendered from <a href="https://github.com/sasagar/sasagar/blob/main/.github/workflows/metrics.yml"><code>.github/workflows/metrics.yml</code></a> ·
+stored on the <a href="https://github.com/sasagar/sasagar/tree/output"><code>output</code></a> branch
+</sub>
+</div>

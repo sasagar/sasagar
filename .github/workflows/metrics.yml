@@ -1,0 +1,110 @@
+name: Metrics
+
+# lowlighter/metrics でプロフィール用の SVG を生成し、output ブランチへコミットする。
+#
+# 採用していないプラグインとその理由（2026-07 時点、実データで確認済み）:
+#   - activity     : GitHub Events API の PushEvent から payload.commits が消えたため
+#                    metrics 側が undefined を filter しようとしてクラッシュする（upstream バグ）
+#   - habits       : 同上。payload.commits に依存しているため同じ理由でクラッシュする
+#   - achievements : 内部クエリが Projects (classic) を参照しており、GitHub の廃止に伴い
+#                    GraphQL がエラーを返す
+#   - topics       : 「スターを付けた topic」が対象。ひとつも付けていないため常に空になる
+#   - licenses     : user コンテキスト非対応（repository モード専用）
+# upstream が直ったら activity / habits / achievements は復活させられる。
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 09:00 JST
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  # 生成物は output ブランチに置き、main は README だけを持つ
+  METRICS_BRANCH: output
+  # GitHub のダークテーマ向けの色補正。
+  # classic テンプレートは #777 / #666 の灰色を前提にしていて暗背景ではコントラストが足りないため、
+  # prefers-color-scheme: dark のときだけ GitHub Dark 相当のパレットに寄せる。
+  METRICS_CSS: |
+    @media (prefers-color-scheme: dark) {
+      svg { color: #c9d1d9 !important; }
+      h1, h2, h3 { color: #58a6ff !important; }
+      footer,
+      .gauge .title,
+      .field.language.details small,
+      .repository .name span:last-child,
+      .repository .description,
+      .repository .infos { color: #8b949e !important; }
+    }
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Overview and contribution calendar
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.overview.svg
+          token: ${{ secrets.PROFILE_TOKEN }}
+          user: ${{ github.repository_owner }}
+          committer_branch: ${{ env.METRICS_BRANCH }}
+          base: header, activity, community, repositories
+          config_timezone: Asia/Tokyo
+          extras_css: ${{ env.METRICS_CSS }}
+          # プラグインが壊れたら「Unexpected error」の画像を公開してしまうより、
+          # ジョブを失敗させて直前の SVG を残したほうがよい
+          plugins_errors_fatal: yes
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+
+      - name: Languages and issue / pull request status
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.languages.svg
+          token: ${{ secrets.PROFILE_TOKEN }}
+          user: ${{ github.repository_owner }}
+          committer_branch: ${{ env.METRICS_BRANCH }}
+          base: ""
+          config_timezone: Asia/Tokyo
+          config_order: languages, followup
+          extras_css: ${{ env.METRICS_CSS }}
+          plugins_errors_fatal: yes
+          plugin_languages: yes
+          plugin_languages_limit: 8
+          plugin_languages_details: bytes-size, percentage
+          plugin_followup: yes
+          plugin_followup_sections: repositories, user
+
+      - name: Notable contributions and featured repositories
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.contributions.svg
+          token: ${{ secrets.PROFILE_TOKEN }}
+          user: ${{ github.repository_owner }}
+          committer_branch: ${{ env.METRICS_BRANCH }}
+          base: ""
+          config_timezone: Asia/Tokyo
+          config_order: notable, repositories
+          extras_css: ${{ env.METRICS_CSS }}
+          plugins_errors_fatal: yes
+          plugin_notable: yes
+          plugin_notable_types: commit, pull_request
+          plugin_repositories: yes
+          plugin_repositories_pinned: 4
+
+      - name: Recently starred repositories
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.starred.svg
+          token: ${{ secrets.PROFILE_TOKEN }}
+          user: ${{ github.repository_owner }}
+          committer_branch: ${{ env.METRICS_BRANCH }}
+          base: ""
+          config_timezone: Asia/Tokyo
+          extras_css: ${{ env.METRICS_CSS }}
+          plugins_errors_fatal: yes
+          plugin_stars: yes
+          plugin_stars_limit: 4
