@@ -20,11 +20,15 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  # metrics の committer_token は既定で ${{ github.token }} なので、
+  # output ブランチへコミットするには write が要る（read だと "Resource not accessible by integration"）
+  contents: write
 
 env:
   # 生成物は output ブランチに置き、main は README だけを持つ
   METRICS_BRANCH: output
+  # コミットに失敗したときの既定は 5 回 x 120 秒。1 ステップで 10 分待たされるので短くする
+  METRICS_OUTPUT_RETRIES: "2"
   # GitHub のダークテーマ向けの色補正。
   # classic テンプレートは #777 / #666 の灰色を前提にしていて暗背景ではコントラストが足りないため、
   # prefers-color-scheme: dark のときだけ GitHub Dark 相当のパレットに寄せる。
@@ -54,6 +58,7 @@ jobs:
           base: header, activity, community, repositories
           config_timezone: Asia/Tokyo
           extras_css: ${{ env.METRICS_CSS }}
+          retries_output_action: ${{ env.METRICS_OUTPUT_RETRIES }}
           # プラグインが壊れたら「Unexpected error」の画像を公開してしまうより、
           # ジョブを失敗させて直前の SVG を残したほうがよい
           plugins_errors_fatal: yes
@@ -71,6 +76,7 @@ jobs:
           config_timezone: Asia/Tokyo
           config_order: languages, followup
           extras_css: ${{ env.METRICS_CSS }}
+          retries_output_action: ${{ env.METRICS_OUTPUT_RETRIES }}
           plugins_errors_fatal: yes
           plugin_languages: yes
           plugin_languages_limit: 8
@@ -89,6 +95,7 @@ jobs:
           config_timezone: Asia/Tokyo
           config_order: notable, repositories
           extras_css: ${{ env.METRICS_CSS }}
+          retries_output_action: ${{ env.METRICS_OUTPUT_RETRIES }}
           plugins_errors_fatal: yes
           plugin_notable: yes
           plugin_notable_types: commit, pull_request
@@ -105,6 +112,7 @@ jobs:
           base: ""
           config_timezone: Asia/Tokyo
           extras_css: ${{ env.METRICS_CSS }}
+          retries_output_action: ${{ env.METRICS_OUTPUT_RETRIES }}
           plugins_errors_fatal: yes
           plugin_stars: yes
           plugin_stars_limit: 4
